@@ -1,6 +1,9 @@
 movieData = {
-"HORROR": ["movieName", ...],
-"COMEDY": ["movieName", ...],
-"ACTION": ["movieName", ...],
-"SCIFI": ["movieName", ...]
+"HORROR": ["IT: Chapter 1", "IT: Chapter 2"],
+"COMEDY": ["Tropic Thunder", "Hot Fuzz"],
+"ACTION": ["Die Hard", "Avengers"],
+"SCIFI": ["Star Wars: A New Hope", "Star Wars: Revenge of the Sith"],
+"DRAMA": ["Parasite", "Citizen Kane"],
+"DOCUMENTARY": ["March of the Penguins", "Tiger KIng"],
+"ROMANCE": ["The Notebook", "Titanic"]
 }

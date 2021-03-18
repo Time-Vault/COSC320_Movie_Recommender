@@ -31,13 +31,13 @@ class Genres(Enum):
     romance = "ROMANCE"
 
 movieData = {
-    Genres.horror: ["IT: Chapter 1", "IT: Chapter 2"],
-    Genres.comedy: ["Tropic Thunder", "Hot Fuzz"],
-    Genres.action: ["Die Hard", "Avengers"],
-    Genres.scifi: ["Star Wars: A New Hope", "Star Wars: Revenge of the Sith"],
-    Genres.drama: ["Parasite", "Citizen Kane"],
-    Genres.documentary: ["March of the Penguins", "Tiger King"],
-    Genres.romance: ["The Notebook", "Titanic"]
+    Genres.horror: ["IT: Chapter 1", "IT: Chapter 2", "Get Out", "The Shining", "American Psycho", "Cabin in the Woods", "Evil Dead"],
+    Genres.comedy: ["Tropic Thunder", "Hot Fuzz", "Step Brothers", "Shaun of the Dead", "Hot Rod", "Bad Grandpa"],
+    Genres.action: ["Die Hard", "Avengers", "Lethal Weapon", "Lethal Weapon 2", "Lethal Weapon 3", "Black Hawk Down", "Kill Bill"],
+    Genres.scifi: ["Star Wars: A New Hope", "Star Wars: Revenge of the Sith", "Star Wars: Phantom Menace", "2001: A Space Odyssey", "Alien", "Blade Runner"],
+    Genres.drama: ["Parasite", "Citizen Kane", "Saving Private Ryan", "Donny Darko", "Apocalypse Now", "Shutter Island", "Silver Linings Playbook", "Dunkirk"],
+    Genres.documentary: ["March of the Penguins", "Tiger King", "Operation Varsity Blues", "Wild Wild Country", "the social dilemma", "Nightstalker"],
+    Genres.romance: ["The Notebook", "Titanic", "Sleepless in Seattle", "Dirty Dancing", "Forever My Girl", "Shape of Water", "Brokeback Mountain", "Beauty and The Beast"]
 }
 
 

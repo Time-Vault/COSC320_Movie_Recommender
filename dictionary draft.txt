@@ -1,0 +1,6 @@
+movieData = {
+"HORROR": ["movieName", ...],
+"COMEDY": ["movieName", ...],
+"ACTION": ["movieName", ...],
+"SCIFI": ["movieName", ...]
+}

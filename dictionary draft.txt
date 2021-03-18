@@ -4,6 +4,6 @@ movieData = {
 "ACTION": ["Die Hard", "Avengers"],
 "SCIFI": ["Star Wars: A New Hope", "Star Wars: Revenge of the Sith"],
 "DRAMA": ["Parasite", "Citizen Kane"],
-"DOCUMENTARY": ["March of the Penguins", "Tiger KIng"],
+"DOCUMENTARY": ["March of the Penguins", "Tiger King"],
 "ROMANCE": ["The Notebook", "Titanic"]
 }

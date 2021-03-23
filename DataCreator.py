@@ -120,5 +120,5 @@ for user in data:
     jsonData[user] = json.dumps(data[user].__dict__)
 
 # Print JSON to file
-with open('result.json', 'w') as fp:
+with open('inputData.json', 'w') as fp:
     json.dump(jsonData, fp)

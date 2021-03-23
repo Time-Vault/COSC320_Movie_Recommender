@@ -115,6 +115,9 @@ for name in names:
                 dislikedList.append(movie)
         data[name].add_genre_data(likedList, notRated, dislikedList, genre.value)
 
+    print("-------" + name + "-------\n")
+    data[name].print_user_genre_data()
+
 # Convert Classes to JSON
 for user in data:
     jsonData[user] = json.dumps(data[user].__dict__)

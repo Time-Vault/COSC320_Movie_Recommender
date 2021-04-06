@@ -57,11 +57,32 @@ def n3Algorithm(N):
             for k in range(N):
                 a=i*j
 
+def nlognAlgorithm(N):
+    a = []
+    for i in range(N):
+        a.append(i)
+    for i in range(N):
+        nlognHelper(a, i)
+    
+def nlognHelper(data, value):
+    n = len(data)
+    left = 0
+    right = n - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if value < data[middle]:
+            right = middle - 1
+        elif value > data[middle]:
+            left = middle + 1
+        else:
+            return middle
+
 
 plotTC( recommenderAlgorithmTest, 10, 200, 2, 10)
 #plotTC( similarityAlgorithmTest, 10, 200, 2, 10)
 plotTC( nAlgorithm, 10, 200, 2, 10)
-plotTC( n2Algorithm, 10, 200, 2, 10)
+plotTC( nlognAlgorithm, 10, 200, 2, 10)
+#plotTC( n2Algorithm, 10, 200, 2, 10)
 
 #plotTC( n3Algorithm, 10, 100, 1, 10)
 pyplot.show()

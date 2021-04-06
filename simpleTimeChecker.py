@@ -15,7 +15,7 @@ def plotTC(fn, nMin, nMax, nInc, nTests):
         y.append(t)
     p1 = pyplot.plot(x, y, 'o')
 
-def algorithmTest(N):
+def similarityAlgorithmTest(N):
     # A simplified version of our algorithm, runs through the primary steps it takes
     for i in range(N):
         for j in range(N):
@@ -24,6 +24,25 @@ def algorithmTest(N):
                     # Simulate the constant number of genres we have
                     # a = i*j just gives the algorithm something to do
                     a=i*j
+
+def recommenderAlgorithmTest(N):
+    # A simplified version of our algorithm, runs through the primary steps it takes
+    a = []
+    for i in range(N):
+        if (i not in a):
+            # Just have the computer do something
+            b = i*i
+        if (i%2==0):
+            # Add the 'movie' to the array
+            a.append(i)
+        elif (i%2==1):
+            b = i
+
+
+def nAlgorithm(N):
+    # A simple n^2 algorithm
+    for i in range(N):
+        a=i*i
 
 def n2Algorithm(N):
     # A simple n^2 algorithm
@@ -38,7 +57,11 @@ def n3Algorithm(N):
             for k in range(N):
                 a=i*j
 
-plotTC( algorithmTest, 10, 200, 2, 10)
+
+plotTC( recommenderAlgorithmTest, 10, 200, 2, 10)
+#plotTC( similarityAlgorithmTest, 10, 200, 2, 10)
+plotTC( nAlgorithm, 10, 200, 2, 10)
 plotTC( n2Algorithm, 10, 200, 2, 10)
+
 #plotTC( n3Algorithm, 10, 100, 1, 10)
 pyplot.show()

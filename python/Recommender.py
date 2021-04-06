@@ -107,8 +107,7 @@ computeReccomendations()
 
 
 jsonData= {}
-for user in userData:
-    jsonData[user] = json.dumps(userData[user])
+jsonData = json.dumps(userData)
 
 # Print JSON to file
 with open('similarityResults.json', 'w') as fp:

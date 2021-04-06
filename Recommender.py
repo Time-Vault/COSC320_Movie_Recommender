@@ -52,23 +52,59 @@ def compareGenre (user1, user2, genre):
     else:
         return similarityRatio
 
-for i in range(len(userNames)):
-    user1 = userData[userNames[i]]
-    for j in range(len(userNames)):
-        if (j+1 < len(userNames)):
-            user2 = userData[userNames[j+1]]
-            for genre in userData[userNames[i]]['genres']:
-                if genre not in userData[userNames[i]]['similarityList']:
-                    userData[userNames[i]]['similarityList'][genre] = {}
-                if genre not in userData[userNames[j+1]]['similarityList']:
-                    userData[userNames[j+1]]['similarityList'][genre] = {}
+def computeSimilarity():
+    for i in range(len(userNames)):
+        user1 = userData[userNames[i]]
+        for j in range(len(userNames)):
+            if (j+1 < len(userNames)):
+                user2 = userData[userNames[j+1]]
+                for genre in userData[userNames[i]]['genres']:
+                    if genre not in userData[userNames[i]]['similarityList']:
+                        userData[userNames[i]]['similarityList'][genre] = {}
+                    if genre not in userData[userNames[j+1]]['similarityList']:
+                        userData[userNames[j+1]]['similarityList'][genre] = {}
 
-                maxSimilarity = compareGenre(user1, user1, genre)
-                userSimilarity = compareGenre(user1, user2, genre) / maxSimilarity
-                if userSimilarity > maxSimilarity:
-                    maxSimilarity = userSimilarity
-                user1['similarityList'][genre][userNames[j+1]] = userSimilarity
-                user2['similarityList'][genre][userNames[i]] = userSimilarity
+                    maxSimilarity = compareGenre(user1, user1, genre)
+                    userSimilarity = compareGenre(user1, user2, genre) / maxSimilarity
+                    if userSimilarity > maxSimilarity:
+                        maxSimilarity = userSimilarity
+                    user1['similarityList'][genre][userNames[j+1]] = userSimilarity
+                    user2['similarityList'][genre][userNames[i]] = userSimilarity
+
+def computeReccomendations():
+    # Loop from 0 -> n
+    for i in range(len(userNames)):
+        user1 = userData[userNames[i]]
+        # Loop through users 1 -> n
+        for j in range(len(userNames)):
+            if (j+1 < len(userNames)):
+                user2 = userData[userNames[j+1]]
+
+                # Loop through all genres
+                for genre in userData[userNames[i]]['genres']:
+                    # Declare object for genre if it doesn't exist
+                    if (genre not in user1['recommendations']):
+                        user1['recommendations'][genre] = {}
+                    # Declare not rated List
+                    if (user1['similarityList'][genre][userNames[j+1]] >= 0.5):
+                        notRatedList = user1['genres'][genre][genre_data_keys.notRatedList]
+
+                        # Loop through all movies in the not rated List
+                        for movie in notRatedList:
+                            # if movie has not recommendation rating yet set to 0
+                            if (movie not in user1['recommendations'][genre]):
+                                user1['recommendations'][genre][movie] = 0
+                            # If user2 has liked the movie add their similarity to the recommendation else subtract from ratio
+                            if (movie in user2['genres'][genre][genre_data_keys.likedList]):
+                                user1['recommendations'][genre][movie] += user1['similarityList'][genre][userNames[j+1]]
+                            elif (movie in user2['genres'][genre][genre_data_keys.dislikedList]):
+                                user1['recommendations'][genre][movie] -= user1['similarityList'][genre][userNames[j + 1]]
+
+
+
+computeSimilarity()
+computeReccomendations()
+
 
 jsonData= {}
 for user in userData:

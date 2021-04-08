@@ -148,7 +148,7 @@ function Similarities(props: { userData: Dictionary<IData> }) {
         {Object.keys(currentUser.similarityList).map((genre: string) => {
           const userKeys = Object.keys(currentUser.similarityList[genre]);
           return <div key={genre} style={{ padding: 20 }}>
-            <Typography variant="h5">{`${genre.charAt(0) + genre.toLocaleLowerCase().slice(1)} Recommendations:`}</Typography>
+            <Typography variant="h5">{`${genre.charAt(0) + genre.toLocaleLowerCase().slice(1)} Similarities:`}</Typography>
             <div style={{ paddingLeft: 20, paddingTop: 10 }}>
               {userKeys.length > 0
                 ? userKeys.map((user: string) => (

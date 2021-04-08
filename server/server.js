@@ -9,9 +9,10 @@ const PORT = 8080;
 app.use(cors());
 
 app.get("/results", (req, res) => {
+  console.log("REQUEST MADE")
   const rawData = fs.readFileSync("../python/similarityResults.json");
   res.send({ results: JSON.parse(rawData) });
-  console.log("We did it bois");
+  console.log("Response Sent");
 });
 
 app.listen(PORT, () => {

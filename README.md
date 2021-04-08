@@ -13,7 +13,7 @@ Algorithm for recommending users movies based on similar users.
 2. Run `npm install`
 3. Run the command npm run start
 
-## Running The Web App (my-app)
+## Running The Server (my-app)
 
 1. Enter the `server` directory in a terminal window
 2. Run `npm install`

@@ -29,14 +29,13 @@ def recommenderAlgorithmTest(N):
     # A simplified version of our algorithm, runs through the primary steps it takes
     a = []
     for i in range(N):
-        if (i not in a):
-            # Just have the computer do something
-            b = i*i
-        if (i%2==0):
-            # Add the 'movie' to the array
-            a.append(i)
-        elif (i%2==1):
-            b = i
+        for j in range(N):
+            if (j +1 < N & j != i):
+                for k in range(5):
+                    for p in range(5):
+                        if (i%2==0):
+                            # Add the 'movie' to the array
+                            a.append(i)
 
 
 def nAlgorithm(N):
@@ -55,7 +54,24 @@ def n3Algorithm(N):
     for i in range(N):
         for j in range(N):
             for k in range(N):
-                a=i*j
+                a=i*j*k
+
+def n4Algorithm(N):
+    # A simple n^3 algorithm
+    for i in range(N):
+        for j in range(N):
+            for k in range(N):
+                for h in range(N):
+                    a=i*j*k*h
+
+def n5Algorithm(N):
+    # A simple n^5 algorithm
+    for i in range(N):
+        for j in range(N):
+            for k in range(N):
+                for h in range(N):
+                    for f in range(N):
+                        a=i*j*k*h*f
 
 def nlognAlgorithm(N):
     a = []
@@ -78,11 +94,11 @@ def nlognHelper(data, value):
             return middle
 
 
-plotTC( recommenderAlgorithmTest, 10, 200, 2, 10)
+plotTC( recommenderAlgorithmTest, 10, 100, 1, 10)
 #plotTC( similarityAlgorithmTest, 10, 200, 2, 10)
-plotTC( nAlgorithm, 10, 200, 2, 10)
-plotTC( nlognAlgorithm, 10, 200, 2, 10)
-#plotTC( n2Algorithm, 10, 200, 2, 10)
-
-#plotTC( n3Algorithm, 10, 100, 1, 10)
+#plotTC( nAlgorithm, 10, 200, 2, 10)
+#plotTC( nlognAlgorithm, 10, 200, 2, 10)
+plotTC( n2Algorithm, 10, 100, 1, 10)
+#plotTC( n4Algorithm, 10, 50, 1, 10)
+#plotTC( n3Algorithm, 10, 50, 1, 10)
 pyplot.show()
